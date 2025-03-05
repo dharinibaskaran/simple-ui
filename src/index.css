@@ -1,0 +1,217 @@
+General Styles
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ebfce1; /* Apply background color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Move logo left, keep title centered */
+  padding: 0 40px; /* Space around the content */
+}
+
+/* Logo Image (Align Left) */
+.logo {
+  height: 80%;
+  width: auto;
+  max-height: 50px;
+  object-fit: contain;
+}
+
+/* Title Container (Centered) */
+.header-title {
+  flex-grow: 1; /* Allows it to take available space */
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Full-Screen Container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw; /* Full width */
+  height: calc(90vh - 20px); /* Full height below header */
+  background: white;
+  margin-top: 10vh;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Upload and Image Section */
+.upload-image-section {
+  display: flex;
+  flex: 1; /* Takes up remaining space */
+  width: 100%;
+  min-height: 70%; /* Ensure it doesn't collapse */
+}
+
+/* Upload Box (Left) */
+.upload-box {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid #ddd;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+}
+
+/* Upload Button */
+.upload-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Image Display Section (Right) */
+.image-box {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.uploaded-image {
+  max-width: 90%;
+  max-height: 90%;
+  border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* JSON Output Section */
+.json-container {
+  height: 30%;
+  width: 100%;
+  border-top: 2px solid #ddd;
+  padding: 15px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  font-size: 14px;
+  white-space: pre-wrap;
+  font-family: monospace;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+/* Upload Box (Left) */
+.upload-box {
+  width: 25%; /* Adjust to 25% width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: none; /* Remove right border */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #27ae60; /* Green background */
+  border-radius: 10px;
+}
+
+/* Upload Button Styled */
+.upload-btn {
+  background-color: white;
+  color: #27ae60;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid #27ae60;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* Drag & Drop Box Inside Upload */
+.drag-drop-box {
+  width: 100%;
+  height: 150px;
+  border: 2px dashed white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.drag-drop-box:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Image Display Section (Right) */
+.image-box {
+  width: 75%; /* Increase to 75% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* JSON Output Section */
+.json-container {
+  height: 30%;
+  width: 100%;
+  border-top: 2px solid #ddd;
+  padding: 15px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  font-size: 14px;
+  white-space: pre-wrap;
+  font-family: monospace;
+  box-sizing: border-box;
+  border-radius: 10px;
+}

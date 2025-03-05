@@ -1,0 +1,10 @@
+{
+    "filename": "example.png",
+    "size": 51234,
+    "format": "image/png",
+    "detectedBoundaries": [
+      { "x": 15, "y": 30, "width": 120, "height": 160 },
+      { "x": 210, "y": 70, "width": 90, "height": 100 }
+    ]
+  }
+  
