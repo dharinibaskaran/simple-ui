@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaCloudUploadAlt } from "react-icons/fa"; // Import upload icon
+import { FaCloudUploadAlt } from "react-icons/fa";
+import { motion } from "framer-motion"; // Import Framer Motion
 import "./index.css";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         setError("");
         setIsProcessing(true);
 
-        // Wait for 5 seconds before showing image & JSON
+        // Simulate processing delay
         setTimeout(() => {
           setImage(URL.createObjectURL(file));
           setJsonOutput(require("./data.json")); // Load JSON from file
@@ -35,11 +36,11 @@ function App() {
   };
 
   const handleDragOver = (event) => {
-    event.preventDefault(); // Prevents opening file in a new tab
+    event.preventDefault();
   };
 
   const handleDrop = (event) => {
-    event.preventDefault(); // Prevents default browser behavior
+    event.preventDefault();
     const file = event.dataTransfer.files[0];
     handleImageUpload(file);
   };
@@ -83,7 +84,14 @@ function App() {
           {/* Image Display Section */}
           <div className="image-box">
             {isProcessing ? (
-              <p>Processing... Please wait</p>
+              <motion.div
+                className="loading-animation"
+                initial={{ opacity: 0.5, scale: 1 }}
+                animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.2, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                Processing Image... Please wait
+              </motion.div>
             ) : image ? (
               <img src={image} alt="Uploaded" className="uploaded-image" />
             ) : (
@@ -95,13 +103,20 @@ function App() {
         {/* JSON Output Section */}
         <div className="json-container">
           <h3>JSON Output:</h3>
-          <pre className="json-output">
-            {isProcessing
-              ? "Processing JSON..."
-              : jsonOutput
-              ? JSON.stringify(jsonOutput, null, 2)
-              : "No Data"}
-          </pre>
+          {isProcessing ? (
+            <motion.div
+              className="loading-animation"
+              initial={{ opacity: 0.5, scale: 1 }}
+              animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.2, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              Processing JSON... Please wait
+            </motion.div>
+          ) : (
+            <pre className="json-output">
+              {jsonOutput ? JSON.stringify(jsonOutput, null, 2) : "No Data"}
+            </pre>
+          )}
         </div>
       </div>
     </>
