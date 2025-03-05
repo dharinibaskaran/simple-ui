@@ -1,8 +1,9 @@
 General Styles
 body, html {
+  overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -36,13 +37,24 @@ body, html {
   object-fit: contain;
 }
 
-/* Title Container (Centered) */
 .header-title {
-  flex-grow: 1; /* Allows it to take available space */
+  position: absolute; /* Makes it independent of flexbox */
+  left: 50%; /* Moves it to the center */
+  transform: translateX(-50%); /* Centers it perfectly */
+  font-size: 2.5rem;
+  font-weight: 3rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
 }
+
+/* Title Container (Centered) */
+/* .header-title {
+  flex-grow: 1; Allows it to take available space 
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} */
 
 /* Full-Screen Container */
 .main-container {
@@ -50,12 +62,14 @@ body, html {
   flex-direction: column;
   width: 100vw; /* Full width */
   height: calc(90vh - 20px); /* Full height below header */
-  background: white;
+  background-color: #ebfce1;
   margin-top: 10vh;
   padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
   border-radius: 10px;
+  gap: 20px;
+
 }
 
 /* Upload and Image Section */
@@ -64,52 +78,13 @@ body, html {
   flex: 1; /* Takes up remaining space */
   width: 100%;
   min-height: 70%; /* Ensure it doesn't collapse */
-}
-
-/* Upload Box (Left) */
-.upload-box {
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-right: 2px solid #ddd;
-  padding: 20px;
-  box-sizing: border-box;
-  background-color: #f8f8f8;
-}
-
-/* Upload Button */
-.upload-btn {
-  background-color: #3498db;
-  color: white;
-  padding: 12px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: 0.3s;
-}
-
-.upload-btn:hover {
-  background-color: #2980b9;
+  gap: 20px;
 }
 
 /* Error Message */
 .error-message {
   color: red;
   margin-top: 10px;
-}
-
-/* Image Display Section (Right) */
-.image-box {
-  width: 65%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
 }
 
 .uploaded-image {
@@ -120,6 +95,19 @@ body, html {
   border-radius: 5px;
 }
 
+/* Image Display Section (Right) */
+.image-box {
+  width: 60%; /* Increase to 75% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  /* border: 2px solid black; */
+  background-color: white;
+}
+
 /* JSON Output Section */
 .json-container {
   height: 30%;
@@ -127,91 +115,75 @@ body, html {
   border-top: 2px solid #ddd;
   padding: 15px;
   overflow-y: auto;
-  background: #f9f9f9;
+  background: white;
   font-size: 14px;
   white-space: pre-wrap;
   font-family: monospace;
   box-sizing: border-box;
+  border-radius: 10px;
+  /* border: 2px solid black; */
 }
 
 
-
-
-
-
-/* Upload Box (Left) */
+/* Upload Box */
 .upload-box {
-  width: 25%; /* Adjust to 25% width */
+  width:40%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-right: none; /* Remove right border */
   padding: 20px;
   box-sizing: border-box;
-  background-color: #27ae60; /* Green background */
+  /* background-color: #ebfce1; Earlier provided hex code */
   border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  /* border: 2px solid black; */
+  background-color: white;
 }
 
-/* Upload Button Styled */
-.upload-btn {
-  background-color: white;
+/* Drag & Drop Box */
+.drag-drop-box {
+  width: 90%;
+  height: 150px;
+  border: 2px dashed #27ae60; /* Green Dashed Border */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   color: #27ae60;
-  padding: 12px 20px;
   font-size: 16px;
   font-weight: bold;
-  border: 2px solid #27ae60;
+  border-radius: 10px;
+  transition: 0.3s;
+  background: white;
+  padding: 20px;
+}
+
+.drag-drop-box:hover {
+  background-color: rgba(39, 174, 96, 0.1); /* Light green tint */
+}
+
+/* Upload Icon */
+.upload-icon {
+  font-size: 40px;
+  color: #27ae60;
+  margin-bottom: 10px;
+}
+
+/* Upload Button */
+.upload-btn {
+  background-color: #27ae60;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 15px;
+  margin-top: 10px;
   transition: 0.3s;
 }
 
 .upload-btn:hover {
-  background-color: #f0f0f0;
-}
-
-/* Drag & Drop Box Inside Upload */
-.drag-drop-box {
-  width: 100%;
-  height: 150px;
-  border: 2px dashed white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.drag-drop-box:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Image Display Section (Right) */
-.image-box {
-  width: 75%; /* Increase to 75% */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* JSON Output Section */
-.json-container {
-  height: 30%;
-  width: 100%;
-  border-top: 2px solid #ddd;
-  padding: 15px;
-  overflow-y: auto;
-  background: #f9f9f9;
-  font-size: 14px;
-  white-space: pre-wrap;
-  font-family: monospace;
-  box-sizing: border-box;
-  border-radius: 10px;
+  background-color: #219150;
 }
